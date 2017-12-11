@@ -11,17 +11,23 @@ import java.util.Scanner; // used in order to import the scanner class
 public class BinaryOperations{
   public static void main(String[] args) {
 
-    int left[] = new int[7];
-    int right[] = new int[7];
+    long binary1, binary2;
+    int i=0, remainder = 0;
+    int[] sum = new int[20];
 
 
     System.out.println("Please input your first binary number: ");// where the person inserts 1st binary
     Scanner left[]= new Scanner(System.in);
-    
+    binary1 = in.nextLong();
+
 
     System.out.println("Now please input your second binary number: ");// where the person inserts 2nd binary
     Scanner right[]= new Scanner(System.in);
+    binary2 = in.nextLong();
+    
+      }
 
+    }
     System.out.println("Thank you, here is the sum of your binary numbers: ");// the final result
 
 
@@ -35,3 +41,4 @@ public class BinaryOperations{
   }
 
 }
+
