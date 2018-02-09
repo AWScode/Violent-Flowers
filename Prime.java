@@ -1,19 +1,35 @@
 import java.util.*;
 
 
-//create class
 public class Prime{
-//print the Prime Factors
-  public static void printPrimeFactors(int num) {
-    for (int i = 2; i <= number; i++) {
-
-      while (number % i == 0) {
-      
 
 
+  public static long mersennePrime(int power){
+    long finalM = 0;
+    for(int i = 1; i<power;i++){
+      long Mnum = (2^i)-1;
+      if(checkPrime(Mnum)){
+        finalM = Mnum;
+      }
+    }
+    return finalM;
   }
-//check to see if a number is prime
-  public static boolean checkPrime(int check) {
+
+  public static void printPrimeFactors(int num) {
+    if (num == 2) {
+      System.out.println(num);
+    }
+    for (int i = 2; i <= num; i++) {
+      if (num%i == 0) {
+        System.out.println(i);
+        printPrimeFactors(num/i);
+        //num = num/i;
+        break;
+      }
+    }
+  }
+
+  public static boolean checkPrime(long check) {
     boolean isPrime = true;
     for (int i = 2; i < check; i++) {
       // '%' is the mod operator. It tells you what the remainder
@@ -26,7 +42,7 @@ public class Prime{
     return isPrime;
   }
 
-//go to the next number
+
   public static int nextPrime(int x) {
     int next = x + 1;
     while (true) {
@@ -50,10 +66,10 @@ public class Prime{
     //take integer input from user and create a variable with it.
     int baseNum = userIn.nextInt();
     //pass baseNum to the nextPrime methods
-    int nPrime = nextPrime(baseNum);
+    long result = mersennePrime(baseNum);
+    System.out.println(result);
 
 
-    System.out.println(nPrime);
 
   }
 }
