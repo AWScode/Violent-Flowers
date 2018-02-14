@@ -23,10 +23,10 @@ public class Student{
   }
 
   public int getAge(){
-
+    return this.age;
   }
 
   public String getHouse(){
-    
+    return this.house;
   }
 }
