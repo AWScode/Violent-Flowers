@@ -8,9 +8,9 @@ public class Student{
 
   private static String name;
   private static int age;
-  private static int house;
+  private static String house;
 
-  public Student(String n, int a, int h) {
+  public Student(String n, int a, String h) {
 
       this.name = n;
       this.age = a;
@@ -22,5 +22,11 @@ public class Student{
       return this.name;
   }
 
-  
+  public int getAge(){
+
+  }
+
+  public String getHouse(){
+    
+  }
 }
