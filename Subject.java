@@ -6,26 +6,38 @@ Subject.java
 
 public class Subject{
 
-  private static String name;
-  private static String teacher;
-  private static int period;
+  private String subject;
+  private String names;
+  private String teacher;
 
-  public Subject(String n, String t, int p) {
 
-    this.name = n;
+  public Subject(String s, String w, String t) {
+
+    this.subject = s;
+    this.names = w;
     this.teacher = t;
-    this.period = p;
   }
 
-  public String getName(){
-    return.this.name;
+  public String getSubject(){
+    return this.subject;
+  }
+  public String getNames(){
+    return this.names;
   }
 
   public String getTeacher(){
-    return.this.teacher;
+    return this.teacher;
   }
 
-  public int getPeriod(){
-    return.this.period;
+  public void setSubject(String s) {
+    subject = s;
+  }
+
+  public void setNames(String w){
+    names = w;
+  }
+
+  public void setTeacher(String t){
+    teacher = t;
   }
 }
