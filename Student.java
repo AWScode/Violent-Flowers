@@ -6,9 +6,9 @@ Student
 
 public class Student{
 
-  private static String name;
-  private static int age;
-  private static String house;
+  private String name;
+  private int age;
+  private String house;
 
   public Student(String n, int a, String h) {
 
@@ -28,5 +28,17 @@ public class Student{
 
   public String getHouse(){
     return this.house;
+  }
+
+  public void setName(String n) {
+    name = n;
+  }
+
+  public void setAge(int a){
+    age = a;
+  }
+
+  public void setHouse(String h){
+    house = h;
   }
 }
