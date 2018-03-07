@@ -1,10 +1,16 @@
+/*
+Chloe Arranza
+March 7, 2018
+Connect Four
+*/
+
 import java.util.*;
 
 public class ConnectFour {
 
   //Instance Variables here
   String[][] board;
-  //rows
+
   String[] column1;
   String[] column2;
   String[] column3;
@@ -16,7 +22,7 @@ public class ConnectFour {
   Boolean gameOver;
 
   public ConnectFour() {
-    //Constructor Method here
+    //These are all the columns with the starting variable of 0
     this.column1 = new String[6];
     this.column1[0] = "0";
     this.column1[1] = "0";
@@ -85,81 +91,85 @@ public class ConnectFour {
     this.gameOver = false;
   }
 
-  // Get and Set Methods here
-  public void getPiece(){
-    if ();
-  }
+  
 
-  // Other methods here
-  public void displayBoard(){
-    for (int j = 0; j < 6; j++) {
-      String row = "";
-      for (int i = 0; i < 7; i++) {
-        row = row + board[i][j] + " ";
+      // Get and Set Methods here
+      public void getPiece(){
+        if ();
       }
-      System.out.println(row);
-    }
-  }
 
-  public void addPiece(int columnInd) {
-
-    public void addPiece() {
-    System.out.println("Add piece to a column");
-    Scanner scanner = new Scanner(System.in);
-    int columnInt = scanner.nextInt();
-
-    while(true){
-        if(columnInt > 7){
-            System.out.println("That's not a valid column");
-            break;
-        }
-        if (board[columnInt][0] == "0") {
-            board[columnInt][0] = "1";
-            break;
-        }
-        else if(board[columnInt][0] == "1"){
-          if(board[columnInt][6] == "1"){
-            System.out.println("This  column is full");
+      // Other methods here
+      public void displayBoard(){
+        for (int j = 0; j < 6; j++) {
+          String row = "";
+          for (int i = 0; i < 7; i++) {
+            row = row + board[i][j] + " ";
           }
-          for(int k = 1; k < 6; k++){
-            if(board[columnInt][k] == "0"){
-                board[columnInt][k] = "1";
-                break;
-              }
-            }
+          System.out.println(row);
         }
-}
-}
-  }
-
-  public void checkFour() {
-    //do something here
-  }
-
-  public static void main(String[] args) {
-    ConnectFour newGame = new ConnectFour();
-    newGame.displayBoard();
-    newGame.checkFour();
-    String player = "2";
-
-    while (true) {
-      if (player.equals("1")) {
-        player = "2";
       }
-      else{
-        player = "1";
-      }
-      System.out.println("Player" + player + "s turn.");
 
-      Scanner newSc = new Scanner(System.in);
-      newGame.displayBoard();
-      System.out.println("Where do you want to play?");
-      Int col = newSc.nextInt();
-      newGame.addPiece(col,player);
+      public void addPiece(int columnInd) {
 
+        public void addPiece() {
+        System.out.println("Add piece to a column");
+        Scanner scanner = new Scanner(System.in);
+        int columnInt = scanner.nextInt();
+
+        while(true){
+            if(columnInt > 7){
+                System.out.println("That's not a valid column");
+                break;
+            }
+            if (board[columnInt][0] == "0") {
+                board[columnInt][0] = "1";
+                break;
+            }
+            else if(board[columnInt][0] == "1"){
+              if(board[columnInt][6] == "1"){
+                System.out.println("This  column is full");
+              }
+              for(int k = 1; k < 6; k++){
+                if(board[columnInt][k] == "0"){
+                    board[columnInt][k] = "1";
+                    break;
+                  }
+                }
+            }
     }
-  /*  Int col = 1;
-    String player = "1";
-    newGame.addPiece(col, player); */
+    }
+      }
+
+      public void checkFour() {
+        //do something here
+      }
+
+      public static void main(String[] args) {
+        ConnectFour newGame = new ConnectFour();
+        newGame.displayBoard();
+        newGame.checkFour();
+        String player = "2";
+
+        while (true) {
+          if (player.equals("1")) {
+            player = "2";
+          }
+          else{
+            player = "1";
+          }
+          System.out.println("Player" + player + "s turn.");
+
+          Scanner newSc = new Scanner(System.in);
+          newGame.displayBoard();
+          System.out.println("Where do you want to play?");
+          Int col = newSc.nextInt();
+          newGame.addPiece(col,player);
+
+        }
+      /*  Int col = 1;
+        String player = "1";
+        newGame.addPiece(col, player); */
+      }
+    }
+
   }
-}
