@@ -87,7 +87,7 @@ public class ConnectFour {
 
   // Get and Set Methods here
   public void getPiece(){
-    
+    if ();
   }
 
   // Other methods here
@@ -103,7 +103,33 @@ public class ConnectFour {
 
   public void addPiece(int columnInd) {
 
-      if ();
+    public void addPiece() {
+    System.out.println("Add piece to a column");
+    Scanner scanner = new Scanner(System.in);
+    int columnInt = scanner.nextInt();
+
+    while(true){
+        if(columnInt > 7){
+            System.out.println("That's not a valid column");
+            break;
+        }
+        if (board[columnInt][0] == "0") {
+            board[columnInt][0] = "1";
+            break;
+        }
+        else if(board[columnInt][0] == "1"){
+          if(board[columnInt][6] == "1"){
+            System.out.println("This  column is full");
+          }
+          for(int k = 1; k < 6; k++){
+            if(board[columnInt][k] == "0"){
+                board[columnInt][k] = "1";
+                break;
+              }
+            }
+        }
+}
+}
   }
 
   public void checkFour() {
