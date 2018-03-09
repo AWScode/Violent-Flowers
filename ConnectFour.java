@@ -29,23 +29,23 @@ public static void printpattern(String[][] f) {
 
 }
 public static void dropRedpattern(String [][] f){
-    System.out.println("Drop a red disk at column (0-6): ");
+    System.out.println("Please drop a green disk at column (0-6): ");
     Scanner input = new Scanner(System.in);
     int c = 2*input.nextInt()+1;
     for (int i=5;i>= 0;i--){
         if (f[i][c] == " "){
-            f[i][c] = "R";
+            f[i][c] = "G";
             break;
         }
     }
 }
 public static void dropyellowpattern(String[][] f){
-    System.out.println("Drop a yellow disk at column (0-6): ");
+    System.out.println("Please drop a black disk at column (0-6): ");
     Scanner input = new Scanner(System.in);
     int c = 2*input.nextInt()+1;
     for(int i =5;i>= 0 ; i--){
         if (f[i][c] == " "){
-            f[i][c] = "Y";
+            f[i][c] = "B";
             break;
         }
     }
@@ -124,12 +124,12 @@ public static void main(String[] args){
         count++;
         printpattern(f);
         if(checkwinner(f) != null ){
-            if (checkwinner(f) == "R")
-                System.out.println("red palyer won!");
-            else if (checkwinner(f)== "Y")
-                System.out.println("yellow player won!");
+            if (checkwinner(f) == "G")
+                System.out.println("The Green player has won!");
+            else if (checkwinner(f)== "B")
+                System.out.println("The Black player has won!");
             else if (checkwinner(f) == "draw")
-                System.out.println("Tha game draw!");
+                System.out.println("No Winners Here!");
             repeat = false;
           }
 
