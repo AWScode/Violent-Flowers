@@ -4,172 +4,136 @@ March 7, 2018
 Connect Four
 */
 
-import java.util.*;
+import  java.util.Scanner;
 
-public class ConnectFour {
+ public class conncetFour {
+ public static String[][] createpattern(){
+     String [][] f = new String[7][15];
+    for (int i=0;i<f.length ; i++){
+        for (int j=0 ; j<f[i].length ; j++){
+            if (j%2 == 0) f[i][j] = "|";
+            else f[i][j] = " " ;
+            if (i == 6 ) f[i][j] = "-";
+        }
+    }
+    return f;
+}
 
-  //Instance Variables here
-  String[][] board;
+public static void printpattern(String[][] f) {
+    for(int i=0;i<f.length;i++){
+        for (int j=0 ; j<f[i].length;j++){
+            System.out.print(f[i][j]);
+        }
+        System.out.println();
+    }
 
-  String[] column1;
-  String[] column2;
-  String[] column3;
-  String[] column4;
-  String[] column5;
-  String[] column6;
-  String[] column7;
+}
+public static void dropRedpattern(String [][] f){
+    System.out.println("Drop a red disk at column (0-6): ");
+    Scanner input = new Scanner(System.in);
+    int c = 2*input.nextInt()+1;
+    for (int i=5;i>= 0;i--){
+        if (f[i][c] == " "){
+            f[i][c] = "R";
+            break;
+        }
+    }
+}
+public static void dropyellowpattern(String[][] f){
+    System.out.println("Drop a yellow disk at column (0-6): ");
+    Scanner input = new Scanner(System.in);
+    int c = 2*input.nextInt()+1;
+    for(int i =5;i>= 0 ; i--){
+        if (f[i][c] == " "){
+            f[i][c] = "Y";
+            break;
+        }
+    }
+}
+public static String checkwinner(String[][] f){
+    for(int i =0;i<6;i++){
+        for (int j= 0; j<7;j+=2){
+            if((f[i][j+1] != " ")
+                    && (f[i][j+3] != " ")
+                    && (f[i][j+5] != " ")
+                    && (f[i][j+7] != " ")
+                    &&((f[i][j+1] == f[i][j+3])
+                            &&(f[i][j+3] == f[i][j+5])
+                            && (f[i][j+5] == f[i][j+7])))
+                return f[j][j+1];
+        }
+    }
+    for (int i=1;i<15;i+=2){
+        for (int j=0;j<3;j++){
+            if((f[j][i] != " ")
+                    && (f[j+1][i] != " ")
+                    && (f[j+2][i] != " ")
+                    && (f[j+3][i] != " ")
+                    && ((f[j][i] == f[j+1][i])
+                    && (f[j+1][i] == f[j+2][i])
+                    && (f[j+2][i] == f[j+3][i])))
+                      return f[j][i];  
+        }
+    }
+    for(int i=0;i<3;i++){
+        for(int j=1;j<9;j+=2){
+            if((f[i][j] != " ")
+                    && (f[i+1][j+2] != " ")
+                    && (f[i+2][j+4] != " ")
+                    && (f[i+3][j+6] != " ")
+                    && ((f[i][j] == f[i+1][j+2])
+                    && (f[i+1][j+2] == f[i+2][j+4])
+                    && (f[i+2][j+4] == f[i+3][j+6])))
+                      return f[i][j];
+        }
+    }
+    for(int i=0;i<3;i++){
+        for (int j=7;j<15;j+=2){
+            if((f[i][j] != " ")
+                    && (f[i+1][j-2] != " ")
+                    && (f[i+2][j-4] != " ")
+                    && (f[i+3][j-6] != " ")
+                    && ((f[i][j] == f[i+1][j-2])
+                    && (f[i+1][j-2] == f[i+2][j-4])
+                    && (f[i+2][j-4] == f[i+3][j-6])))
+                      return f[i][j];
+        }
+    }
+ //checking for draw condition 
 
-  Boolean gameOver;
+    for(int i=0;i<6;i++){
+        for (int j=0 ; j<7;j+=2){
+            if((f[i][j+1] != " ") 
+                    && (f[i][j+3] != " ")
+                    &&(f[i][j+5] != " ")
+                    &&(f[i][j+7] != " "))
+                return "draw";
+        }
+    }
 
-  public ConnectFour() {
-    //These are all the columns with the starting variable of 0
-    this.column1 = new String[6];
-    this.column1[0] = "0";
-    this.column1[1] = "0";
-    this.column1[2] = "0";
-    this.column1[3] = "0";
-    this.column1[4] = "0";
-    this.column1[5] = "0";
+    return null;
+}
+public static void main(String[] args){
+    String[][] f = createpattern();
+    boolean repeat = true;
+    int count = 0;
+    printpattern(f);
+    while(repeat){
+        if (count % 2 == 0) dropRedpattern(f);
+        else dropyellowpattern(f);
+        count++;
+        printpattern(f);
+        if(checkwinner(f) != null ){
+            if (checkwinner(f) == "R")
+                System.out.println("red palyer won!");
+            else if (checkwinner(f)== "Y")
+                System.out.println("yellow player won!");
+            else if (checkwinner(f) == "draw")
+                System.out.println("Tha game draw!");
+            repeat = false;
+          }
 
-    this.column2 = new String[6];
-    this.column2[0] = "0";
-    this.column2[1] = "0";
-    this.column2[2] = "0";
-    this.column2[3] = "0";
-    this.column2[4] = "0";
-    this.column2[5] = "0";
-
-    this.column3 = new String[6];
-    this.column3[0] = "0";
-    this.column3[1] = "0";
-    this.column3[2] = "0";
-    this.column3[3] = "0";
-    this.column3[4] = "0";
-    this.column3[5] = "0";
-
-    this.column4 = new String[6];
-    this.column4[0] = "0";
-    this.column4[1] = "0";
-    this.column4[2] = "0";
-    this.column4[3] = "0";
-    this.column4[4] = "0";
-    this.column4[5] = "0";
-
-    this.column5 = new String[6];
-    this.column5[0] = "0";
-    this.column5[1] = "0";
-    this.column5[2] = "0";
-    this.column5[3] = "0";
-    this.column5[4] = "0";
-    this.column5[5] = "0";
-
-    this.column6 = new String[6];
-    this.column6[0] = "0";
-    this.column6[1] = "0";
-    this.column6[2] = "0";
-    this.column6[3] = "0";
-    this.column6[4] = "0";
-    this.column6[5] = "0";
-
-    this.column7 = new String[6];
-    this.column7[0] = "0";
-    this.column7[1] = "0";
-    this.column7[2] = "0";
-    this.column7[3] = "0";
-    this.column7[4] = "0";
-    this.column7[5] = "0";
-
-    this.board = new String[7][6];
-    this.board[0] = column1;
-    this.board[1] = column2;
-    this.board[2] = column3;
-    this.board[3] = column4;
-    this.board[4] = column5;
-    this.board[5] = column6;
-    this.board[6] = column7;
-
-    this.gameOver = false;
+      }
   }
 
-  
-
-      // Get and Set Methods here
-      public void getPiece(){
-        if ();
-      }
-
-      // Other methods here
-      public void displayBoard(){
-        for (int j = 0; j < 6; j++) {
-          String row = "";
-          for (int i = 0; i < 7; i++) {
-            row = row + board[i][j] + " ";
-          }
-          System.out.println(row);
-        }
-      }
-
-      public void addPiece(int columnInd) {
-
-        public void addPiece() {
-        System.out.println("Add piece to a column");
-        Scanner scanner = new Scanner(System.in);
-        int columnInt = scanner.nextInt();
-
-        while(true){
-            if(columnInt > 7){
-                System.out.println("That's not a valid column");
-                break;
-            }
-            if (board[columnInt][0] == "0") {
-                board[columnInt][0] = "1";
-                break;
-            }
-            else if(board[columnInt][0] == "1"){
-              if(board[columnInt][6] == "1"){
-                System.out.println("This  column is full");
-              }
-              for(int k = 1; k < 6; k++){
-                if(board[columnInt][k] == "0"){
-                    board[columnInt][k] = "1";
-                    break;
-                  }
-                }
-            }
-    }
-    }
-      }
-
-      public void checkFour() {
-        //do something here
-      }
-
-      public static void main(String[] args) {
-        ConnectFour newGame = new ConnectFour();
-        newGame.displayBoard();
-        newGame.checkFour();
-        String player = "2";
-
-        while (true) {
-          if (player.equals("1")) {
-            player = "2";
-          }
-          else{
-            player = "1";
-          }
-          System.out.println("Player" + player + "s turn.");
-
-          Scanner newSc = new Scanner(System.in);
-          newGame.displayBoard();
-          System.out.println("Where do you want to play?");
-          Int col = newSc.nextInt();
-          newGame.addPiece(col,player);
-
-        }
-      /*  Int col = 1;
-        String player = "1";
-        newGame.addPiece(col, player); */
-      }
-    }
-
-  }
+ }
