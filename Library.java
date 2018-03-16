@@ -49,7 +49,7 @@ public class Library {
   // if the unicode is more than checked unicode, move to right of list
   //keep this list going until there is no more items in the list
   public void alphaSort(){
-    for()
+    
   }
   //Sort with Selection
   public void wLengthSort(){
