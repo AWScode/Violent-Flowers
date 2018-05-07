@@ -17,7 +17,7 @@ public class Restaurant extends Frame{
            }
          });
 
-  setSize(400,300);
+  setSize(1200,750);
   setLayout(null);
   setVisible(true);
 
@@ -26,5 +26,7 @@ public class Restaurant extends Frame{
 
 public static void main(String[] args) {
   Restaurant m = new Restaurant();
+
+}
 
 }
