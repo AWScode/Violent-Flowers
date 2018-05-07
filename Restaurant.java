@@ -7,10 +7,11 @@ May 7, 2018
 import java.awt.*;
 import java.awt.event.*;
 
-private Button a;
+
 
 public class Restaurant extends Frame{
 
+private Button a;
 
    public Restaurant(){
          addWindowListener(new WindowAdapter() {
