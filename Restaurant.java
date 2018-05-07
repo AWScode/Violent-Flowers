@@ -7,6 +7,8 @@ May 7, 2018
 import java.awt.*;
 import java.awt.event.*;
 
+private Button a;
+
 public class Restaurant extends Frame{
 
 
@@ -16,7 +18,9 @@ public class Restaurant extends Frame{
              System.exit(0);
            }
          });
-
+    a = new Button("Click Here!");
+    a.setBounds(90,100,100,30);
+    add(a);
   setSize(1200,750);
   setLayout(null);
   setVisible(true);
