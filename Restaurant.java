@@ -16,9 +16,22 @@ private Button a;
 private Label title;
 private Choice p;
 private Label people;
-private Checkbox Whey;
-private Checkbox Punch;
-//private Checkbox GridLayout;
+private Checkbox Dr;
+private Checkbox Up;
+private Checkbox Beets;
+private Checkbox T;
+private Checkbox Water;
+private Label drinksList;
+private Checkbox Pasta;
+private Checkbox Curry;
+private Checkbox Nachos;
+private Checkbox Pizza;
+private Checkbox Dumpling;
+private Label menu;
+private Checkbox Brownie;
+private Checkbox Pie;
+private Label desserts;
+
 //add all the buttons and whatnots here
    public Restaurant(){
      // just here to close the window in general
@@ -55,20 +68,65 @@ private Checkbox Punch;
     title.setBounds(400, 70, 700, 30);
     add(title);
 
-    Whey = new Checkbox("Something in the Whey");
-        Whey.setBounds(100, 250, 100, 30);
-        add(Whey);
-    Punch = new Checkbox("Cinnamon Toast Punch");
-        Punch.setBounds(100, 270, 80, 30);
-        add(Punch);
+    drinksList = new Label("Drinks:");
+    drinksList.setBounds(100, 220, 100, 30);
+    add(drinksList);
 
+    menu = new Label("Entrées:");
+    menu.setBounds(280, 220, 100, 30);
+    add(menu);
+
+    desserts = new Label("Desserts:");
+    desserts.setBounds(550, 220, 100, 30);
+    add(desserts);
+
+// all the drinks
+    Dr = new Checkbox("Dr. Radical");
+        Dr.setBounds(100, 250, 150, 30);
+        add(Dr);
+    Up = new Checkbox("64-Up");
+        Up.setBounds(100, 270, 150, 30);
+        add(Up);
+    Beets = new Checkbox("Beets by J");
+        Beets.setBounds(100,290,100, 30);
+        add(Beets);
+    T = new Checkbox("Ice-T");
+        T.setBounds(100, 310, 100, 30);
+        add(T);
+    Water = new Checkbox("Basic Water");
+        Water.setBounds(100,330,150,30);
+        add(Water);
+
+// all the food
+    Pasta = new Checkbox("Hasta La Pasta");
+        Pasta.setBounds(280,250,200,30);
+        add(Pasta);
+    Curry = new Checkbox("Keep Calm and Curry On");
+        Curry.setBounds(280,270,200,30);
+        add(Curry);
+    Nachos = new Checkbox("It's Nachos, It's Mine!");
+        Nachos.setBounds(280,290,200,30);
+        add(Nachos);
+    Pizza = new Checkbox("Do You Want a Pizza Me?");
+        Pizza.setBounds(280,310,200,30);
+        add(Pizza);
+    Dumpling = new Checkbox("You're All That and Dim Sum");
+        Dumpling.setBounds(280,330,220,30);
+        add(Dumpling);
+// all the desserts
+    Brownie = new Checkbox("Robert Brownie Jr.");
+        Brownie.setBounds(550, 250, 200,30);
+        add(Brownie);
+    Pie = new Checkbox("3.14");
+        Pie.setBounds(550, 270, 100, 30);
+        add(Pie);
 
 
   // this the the actual frame limits of which i created for the pop up
   setSize(1200,750);
   setLayout(null);
   setVisible(true);
-  setBackground(Color. lightGray);
+  setBackground(Color. pink);
 
 
 }
